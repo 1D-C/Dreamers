@@ -12,10 +12,16 @@
       margin-top: 100px;
     }
 
-    /* Typewriter cursor */
+    /* Container to stack button + text */
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px; /* space between button and text */
+    }
+
     #demo {
       border-right: 3px solid white;
-      display: inline-block;
       padding-right: 5px;
       white-space: nowrap;
       overflow: hidden;
@@ -27,7 +33,6 @@
     }
 
     button {
-      margin-top: 20px;
       padding: 10px 20px;
       background: black;
       color: white;
@@ -43,9 +48,10 @@
 
 <h1>WELCOME TO YOUR DREAMs or .... nightmares</h1>
 
-<button onclick="typeWriter()">hey there</button>
-
-<p id="demo"></p>
+<div class="container">
+  <button onclick="typeWriter()">hey there</button>
+  <p id="demo"></p>
+</div>
 
 <script>
 var i = 0;
@@ -54,12 +60,11 @@ var speed = 50;
 var typing = false;
 
 function typeWriter() {
-  // Prevent overlapping typing if button clicked multiple times
   if (typing) return;
 
   typing = true;
   i = 0;
-  document.getElementById("demo").innerHTML = ""; // reset text
+  document.getElementById("demo").innerHTML = "";
 
   function type() {
     if (i < txt.length) {
