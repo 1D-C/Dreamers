@@ -9,4 +9,20 @@
 </head>
 <body>
  <h1 style="color: white;">WELCOME TO YOUR DREAMs or .... nightmares</h1>
- <p style="color: white;"> Find yourself in a world where its all jumbled</p>
+  <button onclick="typeWriter()">hey there</button>
+
+<p id="demo"></p>
+
+<script>
+var i =0;
+var txt = 'Find yourself in a world where its all jumbled';
+var speed = 100;
+
+function typeWriter() {
+  if (i < txt.length) {
+    document.getElementById("demo").innerHTML += txt.charAt(i);
+    i++;
+    setTimeout(typeWriter, speed);
+  }
+}
+</script>
